@@ -1,0 +1,33 @@
+# Build results
+result
+result-*
+
+# Hardware-specific files (à ne pas partager)
+hosts/*/hardware-configuration.nix
+
+# Secrets et clés privées
+*.key
+*.pem
+secrets/
+
+# Temporaires
+*.tmp
+*.bak
+*~
+
+# Logs
+*.log
+
+# Cache Nix
+.direnv/
+.envrc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

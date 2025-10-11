@@ -1,0 +1,95 @@
+/* Cyberpunk 2077 Quickhacks Theme - Authentic Dark Colors */
+
+* {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 14px;
+}
+
+window {
+  background-color: rgba(5, 15, 20, 0.92);
+  border: 1px solid rgba(0, 150, 180, 0.6);
+  border-radius: 0px;
+  box-shadow: 0 0 12px rgba(0, 150, 180, 0.25);
+}
+
+#input {
+  margin: 15px;
+  padding: 12px 15px;
+  background-color: rgba(0, 25, 35, 0.7);
+  border: 1px solid rgba(0, 120, 140, 0.5);
+  border-radius: 0px;
+  color: rgba(0, 180, 200, 0.9);
+  box-shadow: 0 0 6px rgba(0, 150, 180, 0.2);
+  outline: none;
+}
+
+#input:focus {
+  border: 1px solid rgba(0, 160, 190, 0.7);
+  box-shadow: 0 0 10px rgba(0, 160, 190, 0.3);
+}
+
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  background-color: transparent;
+}
+
+#outer-box {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
+
+#scroll {
+  margin: 0px;
+  padding: 5px;
+}
+
+#text {
+  margin: 0px;
+  padding: 5px 10px;
+  color: rgba(0, 160, 180, 0.8);
+  text-shadow: 0 0 3px rgba(0, 140, 160, 0.3);
+}
+
+#entry {
+  margin: 3px 5px;
+  padding: 10px 15px;
+  background: linear-gradient(90deg, rgba(0, 20, 30, 0.4), rgba(0, 30, 40, 0.3));
+  border-left: 2px solid rgba(0, 80, 100, 0.4);
+  border-right: 1px solid rgba(0, 60, 80, 0.2);
+  transition: all 0.15s ease;
+}
+
+#entry:hover {
+  background: linear-gradient(90deg, rgba(0, 60, 80, 0.5), rgba(0, 80, 100, 0.4));
+  border-left: 2px solid rgba(0, 150, 180, 0.7);
+  box-shadow: 0 0 8px rgba(0, 150, 180, 0.25);
+}
+
+#entry:selected {
+  background: linear-gradient(90deg, rgba(0, 80, 100, 0.6), rgba(0, 100, 120, 0.5));
+  border-left: 2px solid rgba(0, 180, 210, 0.8);
+  border-right: 1px solid rgba(0, 160, 190, 0.6);
+  box-shadow: 0 0 12px rgba(0, 170, 200, 0.4);
+}
+
+#entry:selected #text {
+  color: rgba(200, 230, 240, 0.95);
+  text-shadow: 0 0 4px rgba(0, 180, 210, 0.5);
+  font-weight: bold;
+}
+
+scrollbar {
+  background-color: rgba(0, 15, 20, 0.6);
+  border-left: 1px solid rgba(0, 60, 80, 0.3);
+}
+
+scrollbar slider {
+  background-color: rgba(0, 100, 120, 0.5);
+  border-radius: 0px;
+}
+
+scrollbar slider:hover {
+  background-color: rgba(0, 130, 150, 0.7);
+}
