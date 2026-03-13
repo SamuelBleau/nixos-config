@@ -16,12 +16,12 @@
       # Appearance
       background-color = theme.ui.background + "E6"; # 90% opacity
       text-color = theme.text.primary;
-      border-color = theme.primary.cyan;
+      border-color = theme.primary.purple;
       border-size = 2;
       border-radius = 8;
       
       # Progress bar (for volume, brightness, etc.)
-      progress-color = theme.primary.magenta;
+      progress-color = theme.primary.purpleDark;
       
       # Typography
       font = "JetBrains Mono 11";
@@ -57,7 +57,7 @@
       default-timeout=3000
       
       [urgency=normal]
-      border-color=${theme.primary.cyan}
+      border-color=${theme.primary.purple}
       background-color=${theme.ui.background}E6
       text-color=${theme.text.primary}
       default-timeout=5000
@@ -70,14 +70,14 @@
       on-notify=exec paplay ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/dialog-error.oga
       
       [app-name="Volume"]
-      border-color=${theme.primary.magenta}
+      border-color=${theme.primary.purpleDark}
       background-color=${theme.ui.surface}E6
       format=%b
       default-timeout=2000
       group-by=app-name
       
       [app-name="Brightness"]
-      border-color=${theme.primary.yellow}
+      border-color=${theme.primary.gray}
       background-color=${theme.ui.surface}E6
       format=%b
       default-timeout=2000
@@ -96,7 +96,7 @@
       default-timeout=4000
       
       [app-name="System"]
-      border-color=${theme.primary.cyan}
+      border-color=${theme.primary.purple}
       background-color=${theme.ui.background}F0
       format=⚙️ %s\\n%b
       default-timeout=6000
@@ -108,9 +108,9 @@
       default-timeout=10000
       
       [summary~=".*[Cc]yberpunk.*"]
-      border-color=${theme.primary.magenta}
-      background-color=${theme.primary.magenta}20
-      text-color=${theme.primary.cyan}
+      border-color=${theme.primary.purpleDark}
+      background-color=${theme.primary.purpleDark}20
+      text-color=${theme.primary.purple}
       format=🤖 %s\\n%b
       default-timeout=7000
       

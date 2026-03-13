@@ -10,6 +10,7 @@ with lib;
     ./desktop/waybar.nix
     ./desktop/wofi.nix
     ./desktop/mako.nix
+    ./themes/rat
     ./themes/cyberpunk
   ];
 

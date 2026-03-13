@@ -1,4 +1,4 @@
-# Home Manager configuration for user meeast
+# Global Home Manager modules entrypoint
 { config, pkgs, lib, theme, ... }:
 
 {
@@ -9,16 +9,7 @@
     ./terminal.nix
   ];
   
-  # Enable features
-  meeast = {
-    desktop.enable = true;
-    desktop.hyprland.enable = true;
-    desktop.waybar.enable = true;
-    development.enable = true;
-    development.vscode.enable = true;
-    development.git.enable = true;
-  };
-  
+  # Configuration globale de base pour l'utilisateur
   home = {
     username = "meeast";
     homeDirectory = "/home/meeast";

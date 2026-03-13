@@ -9,8 +9,8 @@ with lib;
       enable = mkEnableOption "desktop environment";
       
       theme = mkOption {
-        type = types.enum [ "cyberpunk" ];
-        default = "cyberpunk";
+        type = types.enum [ "cyberpunk" "rat" ];
+        default = "rat";
         description = "Theme to use for the desktop environment";
       };
       

@@ -21,7 +21,7 @@ with lib;
         gaps_in = config.meeast.desktop.hyprland.gaps.inner;
         gaps_out = config.meeast.desktop.hyprland.gaps.outer;
         border_size = config.meeast.desktop.hyprland.borderSize;
-        "col.active_border" = "rgba(${builtins.substring 1 6 theme.primary.cyan}ff)";
+        "col.active_border" = "rgba(${builtins.substring 1 6 theme.primary.purple}ff)";
         "col.inactive_border" = "rgba(00000000)";
         layout = "dwindle";
         allow_tearing = true;

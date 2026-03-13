@@ -7,34 +7,34 @@ with lib;
     enable = true;
     
     font = {
-      name = "JetBrains Mono";
+      name = "Hack Nerd Font";
       size = 12;
     };
     
     settings = {
-      # Cyberpunk color scheme
+      # Rat color scheme
       foreground = theme.text.primary;
-      background = theme.background.light_purple;
+      background = theme.ui.background;
       selection_foreground = theme.ui.background;
-      selection_background = theme.primary.cyan;
+      selection_background = theme.primary.purple;
       
       # Cursor colors
-      cursor = theme.primary.cyan;
+      cursor = theme.primary.purple;
       cursor_text_color = theme.ui.background;
       cursor_shape = "block";
       cursor_blink_interval = "0.5";
       cursor_stop_blinking_after = "15.0";
       
       # URL colors
-      url_color = theme.primary.magenta;
+      url_color = theme.primary.purpleDark;
       url_style = "single";
       
       # Border and window
       window_border_width = "2px";
       window_margin_width = 8;
       window_padding_width = 12;
-      active_border_color = theme.primary.cyan;
-      inactive_border_color = theme.ui.border_inactive;
+      active_border_color = theme.primary.purple;
+      inactive_border_color = theme.ui.border;
       bell_border_color = theme.status.warning;
       
       # Transparency and blur
@@ -50,12 +50,12 @@ with lib;
       tab_fade = "0.25 0.5 0.75 1";
       tab_separator = " ┇";
       tab_powerline_style = "slanted";
-      tab_activity_symbol = "⚡";
+      tab_activity_symbol = "🐀";
       tab_title_template = " {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{title} ";
       
       # Tab colors
       active_tab_foreground = theme.ui.background;
-      active_tab_background = theme.primary.cyan;
+      active_tab_background = theme.primary.purple;
       active_tab_font_style = "bold";
       inactive_tab_foreground = theme.text.secondary;
       inactive_tab_background = theme.ui.surface;
@@ -129,22 +129,22 @@ with lib;
       confirm_os_window_close = 0;
       
       # Color palette (16 colors)
-      color0 = theme.terminal.black;
-      color1 = theme.terminal.red;
-      color2 = theme.terminal.green;
-      color3 = theme.terminal.yellow;
-      color4 = theme.terminal.blue;
-      color5 = theme.terminal.magenta;
-      color6 = theme.terminal.cyan;
-      color7 = theme.terminal.white;
-      color8 = theme.terminal.bright_black;
-      color9 = theme.terminal.bright_red;
-      color10 = theme.terminal.bright_green;
-      color11 = theme.terminal.bright_yellow;
-      color12 = theme.terminal.bright_blue;
-      color13 = theme.terminal.bright_magenta;
-      color14 = theme.terminal.bright_cyan;
-      color15 = theme.terminal.bright_white;
+      color0 = theme.ui.background; # black
+      color1 = theme.status.error; # red
+      color2 = theme.status.success; # green
+      color3 = theme.status.warning; # yellow
+      color4 = theme.primary.purpleDark; # blue / dark purple
+      color5 = theme.primary.purple; # magenta / purple
+      color6 = theme.primary.gray; # cyan / gray
+      color7 = theme.text.primary; # white
+      color8 = theme.ui.surface; # bright black
+      color9 = theme.status.error; # bright red
+      color10 = theme.status.success; # bright green
+      color11 = theme.status.warning; # bright yellow
+      color12 = theme.primary.purpleDark; # bright blue / dark purple
+      color13 = theme.primary.purple; # bright magenta
+      color14 = theme.primary.gray; # bright cyan
+      color15 = theme.text.primary; # bright white
     };
     
     keybindings = {
@@ -221,86 +221,21 @@ with lib;
     };
   };
   
-  # Create custom shell prompt for cyberpunk theme
-  home.file.".config/kitty/cyberpunk-startup.sh" = {
+  # Create custom shell prompt for Rat theme
+  home.file.".config/kitty/rat-startup.sh" = {
     text = ''
       #!/usr/bin/env bash
       
-      # Cyberpunk terminal startup script with corrected ASCII art
+      # Rat terminal startup script
       clear
       
-      # Colors using ANSI escape codes
-      CYAN="\033[38;2;0;245;255m"
-      MAGENTA="\033[38;2;255;0;128m"
-      PURPLE="\033[38;2;138;43;226m"
-      YELLOW="\033[38;2;255;255;0m"
-      GREEN="\033[38;2;0;255;128m"
-      RED="\033[38;2;255;64;128m"
-      RESET="\033[0m"
-      BOLD="\033[1m"
-      
-      # Main cyberpunk logo
-      echo -e "''${CYAN}''${BOLD}"
-      echo "    ╔════════════════════════════════════════════════════════════════════════════════╗"
-      echo "    ║                                                                                ║"
-      echo "    ║    ██████ ██    ██ ██████  ███████ ██████  ██████  ██    ██ ███    ██ ██  ██   ║"
-      echo "    ║   ██       ██  ██  ██   ██ ██      ██   ██ ██   ██ ██    ██ ████   ██ ██ ███   ║"
-      echo "    ║   ██        ████   ██████  █████   ██████  ██████  ██    ██ ██ ██  ██ ████     ║"
-      echo "    ║   ██         ██    ██   ██ ██      ██   ██ ██      ██    ██ ██  ██ ██ ██ ███   ║"
-      echo "    ║    ██████    ██    ██████  ███████ ██   ██ ██       ██████  ██   ████ ██  ██   ║"
-      echo "    ║                                                                                ║"
-      echo "    ╚════════════════════════════════════════════════════════════════════════════════╝"
-      echo -e "''${RESET}"
-      
-      echo -e "''${MAGENTA}''${BOLD}"
-      echo "      ████████╗███████╗██████╗ ███╗   ███╗██╗███╗   ██╗ █████╗ ██╗     "
-      echo "      ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║██║████╗  ██║██╔══██╗██║     "
-      echo "         ██║   █████╗  ██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║     "
-      echo "         ██║   ██╔══╝  ██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║     "
-      echo "         ██║   ███████╗██║  ██║██║ ╚═╝ ██║██║██║ ╚████║██║  ██║███████╗"
-      echo "         ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝"
-      echo -e "''${RESET}"
-      
-      echo -e "''${PURPLE}''${BOLD}"
-      echo "  ┌─────────────────────────────────────────────────────────────────────┐"
-      echo "  │                  ⚡ NEURAL INTERFACE ACTIVATED ⚡                   │"
-      echo "  │                                                                     │"
-      echo -e "  │                    Welcome back, ''${CYAN}EDGERUNNER''${PURPLE}                         │"
-      echo "  │                                                                     │"
-      echo "  │  System Status: ✅ ONLINE    │  Neural Link: 🔗 CONNECTED           │"
-      echo "  │  Firewall:     🛡️  ACTIVE    │  ICE Status:  ❄️  DEFENSIVE          │"
-      echo "  └─────────────────────────────────────────────────────────────────────┘"
-      echo -e "''${RESET}"
-
-      echo ""
-      
-      # Improved loading animation
-      echo -n -e "''${GREEN}''${BOLD}  Initializing neural interface"
-      for i in {1..5}; do
-        echo -n "."
-        sleep 0.2
-      done
-      echo -e "''${RESET}"
-      
-      echo -n -e "''${CYAN}''${BOLD}  Loading cyberpunk modules: "
-      modules=("ICE-WALL" "NEURAL-LINK" "QUICKHACKS" "MATRIX-RUNNER" "CYBER-DECK")
-      for module in "''${modules[@]}"; do
-        echo -n -e "''${GREEN}▓''${RESET}"
-        sleep 0.15
-      done
-      echo -e " ''${GREEN}''${BOLD}COMPLETE''${RESET}"
-      
-      echo ""
-      echo -e "''${CYAN}''${BOLD}  > System ready for hacking...''${RESET}"
-      echo -e "''${MAGENTA}  > Type 'cyber-help' for available commands''${RESET}"
-      echo ""
     '';
     executable = true;
   };
 
   # Create startup session file
   home.file.".config/kitty/startup.session".text = ''
-    # Kitty startup session - run cyberpunk script
-    launch zsh -c "~/.config/kitty/cyberpunk-startup.sh; exec zsh"
+    # Kitty startup session - run Rat script
+    launch zsh -c "~/.config/kitty/rat-startup.sh; exec zsh"
   '';
 }

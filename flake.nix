@@ -49,7 +49,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.meeast = import ./modules/home;
+              home-manager.users.meeast = import ./hosts/meeast-laptop/home.nix;
               home-manager.extraSpecialArgs = specialArgs;
             }
           ];

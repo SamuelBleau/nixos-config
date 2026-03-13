@@ -14,18 +14,18 @@
       update = "sudo nixos-rebuild switch --flake /etc/nixos#meeast-laptop";
       cwofi = "~/.config/wofi/quickhacks.sh";
       
-      # Aliases cyberpunk décoratifs
-      "cyber-help" = "echo -e 'CYBERPUNK TERMINAL COMMANDS:\\n• wallpaper-cycle - Change cyberpunk wallpaper\\n• matrix - Enter the Matrix\\n• neofetch - System info display\\n• cyber-status - System status\\n• cyber-art - Show cyberpunk ASCII art'";
-      "cyber-art" = "~/.config/kitty/cyberpunk-startup.sh";
+      # Aliases Rat décoratifs
+      "rat-help" = "echo -e 'RAT TERMINAL COMMANDS:\\n• wallpaper-cycle - Change wallpaper\\n• matrix - Enter the Sewers\\n• neofetch - System info display\\n• rat-status - System status\\n• rat-art - Show Rat ASCII art'";
+      "rat-art" = "~/.config/kitty/rat-startup.sh";
       
       # Scripts utiles
-      "wallpaper-cycle" = "/etc/nixos/assets/scripts/cyberpunk-wallpaper.sh";
-      "cyber-wall" = "/etc/nixos/assets/scripts/cyberpunk-wallpaper.sh";
+      "wallpaper-cycle" = "/etc/nixos/assets/scripts/rat-wallpaper.sh";
+      "rat-wall" = "/etc/nixos/assets/scripts/rat-wallpaper.sh";
       
       # Commandes système avec style
-      "cyber-status" = "echo 'SYSTEM STATUS' && echo '' && uptime && echo '' && df -h / && echo '' && free -h";
-      "ice-wall" = "sudo systemctl status firewalld";
-      "neural-link" = "ping -c 4 8.8.8.8";
+      "rat-status" = "echo 'SEWER STATUS' && echo '' && uptime && echo '' && df -h / && echo '' && free -h";
+      "sewer-gate" = "sudo systemctl status firewalld";
+      "rat-link" = "ping -c 4 8.8.8.8";
       
       # Surveillance système
       "processes" = "htop";
@@ -37,14 +37,14 @@
       "reboot-safe" = "systemctl reboot";
       "shutdown-safe" = "systemctl poweroff";
       
-      # Fun cyberpunk
-      "matrix" = "cmatrix -C cyan";
-      "hack-mode" = "echo 'HACKING MODE ACTIVATED' && sleep 1 && cmatrix -C magenta";
-      "glitch" = "echo 'SYSTEM GLITCH DETECTED' && for i in {1..5}; do echo -n '▓▓▓'; sleep 0.1; done; echo ''";
+      # Fun Rat
+      "matrix" = "cmatrix -C magenta";
+      "swarm" = "echo 'RAT SWARM ACTIVATED' && sleep 1 && cmatrix -C magenta";
+      "glitch" = "echo 'SEWER COLLAPSE DETECTED' && for i in {1..5}; do echo -n '▓▓▓'; sleep 0.1; done; echo ''";
       
       # Raccourcis navigation
       "home-config" = "cd /etc/nixos && ls -la";
-      "cyber-assets" = "cd /etc/nixos/assets && ls -la";
+      "rat-assets" = "cd /etc/nixos/assets && ls -la";
       "themes" = "cd /etc/nixos/modules/home/themes && ls -la";
     };
     
@@ -62,17 +62,15 @@
     '';
     
     initContent = ''
-      # Cyberpunk terminal setup - only show when not already displayed
-      # This prevents duplicate displays when using Kitty startup sessions
-      if [[ $- == *i* ]] && [[ -z "$CYBERPUNK_SHOWN" ]] && [[ -z "$KITTY_WINDOW_ID" ]]; then
-        export CYBERPUNK_SHOWN=1
-        if [[ -f ~/.config/kitty/cyberpunk-startup.sh ]]; then
-          ~/.config/kitty/cyberpunk-startup.sh
+      # Rat terminal setup - only show when not already displayed
+      if [[ $- == *i* ]] && [[ -z "$RAT_SHOWN" ]] && [[ -z "$KITTY_WINDOW_ID" ]]; then
+        export RAT_SHOWN=1
+        if [[ -f ~/.config/kitty/rat-startup.sh ]]; then
+          ~/.config/kitty/rat-startup.sh
         fi
       fi
       
-      # Custom cyberpunk prompt enhancement
-      # Git branch helper: prints either empty or ' (branch-name)'
+      # Git branch helper
       git_branch() {
         # prefer git symbolic-ref, fallback to git rev-parse
         local branch
@@ -81,7 +79,6 @@
           return 0
         fi
         if branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null); then
-          # ignore detached HEAD or non-branch output
           if [[ "$branch" != "HEAD" ]]; then
             printf " (%s)" "$branch"
             return 0
@@ -90,14 +87,13 @@
         return 0
       }
 
-      # Ensure command substitution is evaluated inside PS1
       setopt PROMPT_SUBST
 
       if [[ -n "$KITTY_WINDOW_ID" ]]; then
-        # Enhanced prompt for Kitty terminal: show user@host, cwd and git branch
-        PS1="%{$fg[cyan]%}[%{$fg[magenta]%}%n%{$fg[cyan]%}@%{$fg[green]%}%m%{$fg[cyan]%}]%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}"
+        # Modified prompt for Rat terminal
+        PS1="%{$fg[magenta]%}[%{$fg[white]%}%n%{$fg[magenta]%}@%{$fg[black]%}%m%{$fg[magenta]%}]%{$reset_color%} %{$fg[magenta]%}%~%{$reset_color%}"
         PS1+="%{$fg[blue]%}
-$(git_branch 2>/dev/null)%{$reset_color%} %{$fg[cyan]%}⚡%{$reset_color%} "
+$(git_branch 2>/dev/null)%{$reset_color%} %{$fg[magenta]%}🐀%{$reset_color%} "
       fi
     '';
   };

@@ -168,7 +168,7 @@ with lib;
       
       window#waybar {
         background: ${theme.ui.background}d9; /* 85% opacity */
-        border: 2px solid ${theme.primary.cyan}cc; /* 80% opacity */
+        border: 2px solid ${theme.primary.purple}cc; /* 80% opacity */
         border-radius: 12px;
         color: ${theme.text.primary};
         transition-property: background-color;
@@ -196,16 +196,16 @@ with lib;
       }
       
       #workspaces button:hover {
-        background: ${theme.primary.cyan}4d;
+        background: ${theme.primary.purple}4d;
         color: ${theme.text.primary};
-        text-shadow: 0 0 8px ${theme.primary.cyan};
+        text-shadow: 0 0 8px ${theme.primary.purple};
       }
       
       #workspaces button.active {
-        background: linear-gradient(45deg, ${theme.primary.cyan}, ${theme.primary.magenta});
+        background: linear-gradient(45deg, ${theme.primary.purple}, ${theme.primary.purpleDark});
         color: ${theme.ui.background};
         font-weight: bold;
-        box-shadow: 0 0 12px ${theme.primary.cyan}99;
+        box-shadow: 0 0 12px ${theme.primary.purple}99;
       }
       
       #workspaces button.urgent {
@@ -255,14 +255,14 @@ with lib;
       #temperature:hover,
       #network:hover,
       #pulseaudio:hover {
-        background: rgba(${builtins.substring 1 6 theme.primary.cyan}, 0.3);
-        text-shadow: 0 0 6px ${theme.primary.cyan};
+        background: rgba(${builtins.substring 1 6 theme.primary.purple}, 0.3);
+        text-shadow: 0 0 6px ${theme.primary.purple};
         transform: translateY(-1px);
       }
       
       /* Status-specific styling */
       #battery.charging {
-        background: linear-gradient(45deg, ${theme.status.success}, ${theme.primary.cyan});
+        background: linear-gradient(45deg, ${theme.status.success}, ${theme.primary.purple});
         color: ${theme.ui.background};
       }
       
@@ -313,7 +313,7 @@ with lib;
       
       /* Mode indicator */
       #mode {
-        background: linear-gradient(45deg, ${theme.primary.magenta}, ${theme.primary.yellow});
+        background: linear-gradient(45deg, ${theme.primary.purpleDark}, ${theme.primary.gray});
         color: ${theme.ui.background};
         border-radius: 8px;
         padding: 4px 10px;
@@ -324,13 +324,13 @@ with lib;
       
       @keyframes glow {
         to {
-          box-shadow: 0 0 15px rgba(${builtins.substring 1 6 theme.primary.magenta}, 0.8);
+          box-shadow: 0 0 15px rgba(${builtins.substring 1 6 theme.primary.purpleDark}, 0.8);
         }
       }
       
       /* Scratchpad */
       #scratchpad {
-        background: rgba(${builtins.substring 1 6 theme.primary.yellow}, 0.8);
+        background: rgba(${builtins.substring 1 6 theme.primary.gray}, 0.8);
         color: ${theme.ui.background};
         border-radius: 8px;
         padding: 4px 10px;

@@ -5,25 +5,27 @@
 let
   # Import available themes
   cyberpunk = import ../modules/home/themes/cyberpunk/colors.nix;
+  rat = import ../modules/home/themes/rat/colors.nix;
   
   # Theme selector function
   getTheme = themeName: {
     cyberpunk = cyberpunk;
+    rat = rat;
   }.${themeName} or (throw "Unknown theme: ${themeName}");
 
 in {
   inherit getTheme;
   
   # Default theme
-  default = cyberpunk;
+  default = rat;
   
   # Available themes list
-  available = [ "cyberpunk" ];
+  available = [ "cyberpunk" "rat" ];
   
   # Helper functions
   mkThemeOption = lib.mkOption {
-    type = lib.types.enum [ "cyberpunk" ];
-    default = "cyberpunk";
+    type = lib.types.enum [ "cyberpunk" "rat" ];
+    default = "rat";
     description = "Theme to use for the desktop environment";
   };
 }

@@ -3,7 +3,6 @@ result
 result-*
 
 # Hardware-specific files (à ne pas partager)
-hosts/*/hardware-configuration.nix
 
 # Secrets et clés privées
 *.key
