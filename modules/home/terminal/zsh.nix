@@ -12,7 +12,7 @@
       la = "ls -la";
       l = "ls -l";
       update = "sudo nixos-rebuild switch --flake /etc/nixos#meeast-laptop";
-      cwofi = "~/.config/wofi/quickhacks.sh";
+      cwofi = "rat-wofi";
       
       # Aliases Rat décoratifs
       "rat-help" = "echo -e 'RAT TERMINAL COMMANDS:\\n• wallpaper-cycle - Change wallpaper\\n• matrix - Enter the Sewers\\n• neofetch - System info display\\n• rat-status - System status\\n• rat-art - Show Rat ASCII art'";

@@ -7,8 +7,8 @@
       # Applications
       "$mod, Return, exec, kitty"
       "$mod, T, exec, kitty"
-      "$mod, D, exec, pkill wofi || ~/.config/wofi/quickhacks.sh"  # Use custom script with ASCII art
-      "$mod, Space, exec, pkill wofi || ~/.config/wofi/quickhacks.sh"  # Use custom script with ASCII art
+      "$mod, D, exec, pkill -x wofi || rat-wofi"  # Use custom rat script
+      "$mod, Space, exec, pkill -x wofi || rat-wofi"  # Use custom rat script
       "$mod, B, exec, firefox"
       "$mod, E, exec, nautilus"
 

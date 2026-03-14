@@ -18,11 +18,11 @@ with lib;
         margin-left = 16;
         margin-right = 16;
         
-        modules-left = [ "hyprland/workspaces" "hyprland/mode" "hyprland/scratchpad" ];
+        modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ "pulseaudio" "network" "cpu" "memory" "temperature" "battery" "clock" "tray" ];
         
-        # Hyprland workspaces - cyberpunk style
+        # Hyprland workspaces
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
@@ -43,24 +43,12 @@ with lib;
             default = "󰇘";
           };
           persistent-workspaces = {
-            "1" = [];
-            "2" = [];
-            "3" = [];
-            "4" = [];
-            "5" = [];
+            "*" = [ 1 2 3 4 5 ];
           };
         };
         
-        "hyprland/mode" = {
+        "hyprland/submap" = {
           format = "<span style=\"italic\">{}</span>";
-        };
-        
-        "hyprland/scratchpad" = {
-          format = "{icon} {count}";
-          show-empty = false;
-          format-icons = [ "" "󰖯" ];
-          tooltip = true;
-          tooltip-format = "{app}: {title}";
         };
         
         "hyprland/window" = {
@@ -167,8 +155,8 @@ with lib;
       }
       
       window#waybar {
-        background: ${theme.ui.background}d9; /* 85% opacity */
-        border: 2px solid ${theme.primary.purple}cc; /* 80% opacity */
+        background: alpha(${theme.ui.background}, 0.85); /* 85% opacity */
+        border: 2px solid alpha(${theme.primary.purple}, 0.8); /* 80% opacity */
         border-radius: 12px;
         color: ${theme.text.primary};
         transition-property: background-color;
@@ -181,7 +169,7 @@ with lib;
       
       /* Workspaces */
       #workspaces {
-        background: ${theme.ui.surface}99;
+        background: alpha(${theme.ui.surface}, 0.6);
         border-radius: 8px;
         margin: 4px;
         padding: 0 8px;
@@ -196,7 +184,7 @@ with lib;
       }
       
       #workspaces button:hover {
-        background: ${theme.primary.purple}4d;
+        background: alpha(${theme.primary.purple}, 0.3);
         color: ${theme.text.primary};
         text-shadow: 0 0 8px ${theme.primary.purple};
       }
@@ -205,7 +193,7 @@ with lib;
         background: linear-gradient(45deg, ${theme.primary.purple}, ${theme.primary.purpleDark});
         color: ${theme.ui.background};
         font-weight: bold;
-        box-shadow: 0 0 12px ${theme.primary.purple}99;
+        box-shadow: 0 0 12px alpha(${theme.primary.purple}, 0.6);
       }
       
       #workspaces button.urgent {
@@ -223,7 +211,7 @@ with lib;
       
       /* Window title */
       #window {
-        background: ${theme.ui.surface}66;
+        background: alpha(${theme.ui.surface}, 0.4);
         border-radius: 8px;
         padding: 4px 12px;
         margin: 4px;
@@ -240,7 +228,7 @@ with lib;
       #network,
       #pulseaudio,
       #tray {
-        background: rgba(${builtins.substring 1 6 theme.ui.surface}, 0.6);
+        background: alpha(${ theme.ui.surface}, 0.6);
         border-radius: 8px;
         padding: 4px 10px;
         margin: 4px 2px;
@@ -255,9 +243,8 @@ with lib;
       #temperature:hover,
       #network:hover,
       #pulseaudio:hover {
-        background: rgba(${builtins.substring 1 6 theme.primary.purple}, 0.3);
+        background: alpha(${ theme.primary.purple}, 0.3);
         text-shadow: 0 0 6px ${theme.primary.purple};
-        transform: translateY(-1px);
       }
       
       /* Status-specific styling */
@@ -280,7 +267,7 @@ with lib;
       
       @keyframes pulse {
         to {
-          box-shadow: 0 0 20px rgba(${builtins.substring 1 6 theme.status.error}, 0.8);
+          box-shadow: 0 0 20px alpha(${ theme.status.error}, 0.8);
         }
       }
       
@@ -291,12 +278,12 @@ with lib;
       }
       
       #network.disconnected {
-        background: rgba(${builtins.substring 1 6 theme.status.error}, 0.8);
+        background: alpha(${ theme.status.error}, 0.8);
         color: ${theme.text.primary};
       }
       
       #pulseaudio.muted {
-        background: rgba(${builtins.substring 1 6 theme.text.disabled}, 0.6);
+        background: alpha(${ theme.text.disabled}, 0.6);
         color: ${theme.text.disabled};
       }
       
@@ -311,8 +298,8 @@ with lib;
         border-radius: 6px;
       }
       
-      /* Mode indicator */
-      #mode {
+      /* Submap indicator */
+      #submap {
         background: linear-gradient(45deg, ${theme.primary.purpleDark}, ${theme.primary.gray});
         color: ${theme.ui.background};
         border-radius: 8px;
@@ -324,17 +311,8 @@ with lib;
       
       @keyframes glow {
         to {
-          box-shadow: 0 0 15px rgba(${builtins.substring 1 6 theme.primary.purpleDark}, 0.8);
+          box-shadow: 0 0 15px alpha(${ theme.primary.purpleDark}, 0.8);
         }
-      }
-      
-      /* Scratchpad */
-      #scratchpad {
-        background: rgba(${builtins.substring 1 6 theme.primary.gray}, 0.8);
-        color: ${theme.ui.background};
-        border-radius: 8px;
-        padding: 4px 10px;
-        margin: 4px;
       }
     '';
   };

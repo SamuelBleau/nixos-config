@@ -24,7 +24,7 @@
       progress-color = theme.primary.purpleDark;
       
       # Typography
-      font = "JetBrains Mono 11";
+      font = "Hack Nerd Font 11";
       markup = true;
       format = "<b>%s</b>\\n%b";
       
@@ -48,7 +48,7 @@
       max-history = 100;
     };
     
-    # Special notification categories with cyberpunk styling
+    # Special notification categories with rat styling
     extraConfig = ''
       [urgency=low]
       border-color=${theme.secondary.blue}
@@ -134,12 +134,12 @@
     '';
   };
 
-  # Custom notification scripts for cyberpunk system events
-  home.file.".config/mako/scripts/cyberpunk-notify.sh" = {
+  # Custom notification scripts for rat system events
+  home.file.".config/mako/scripts/rat-notify.sh" = {
     text = ''
       #!/usr/bin/env bash
       
-      # Cyberpunk-themed notification sender
+      # Rat-themed notification sender
       
       send_cyber_notification() {
           local title="$1"
@@ -157,13 +157,13 @@
               "$message"
       }
       
-      # Predefined cyberpunk notifications
+      # Predefined rat notifications
       case "$1" in
           "startup")
-              send_cyber_notification "NEURAL LINK ESTABLISHED" "Cyberpunk desktop environment loaded successfully" "normal" "Cyberpunk" "computer"
+              send_cyber_notification "NEURAL LINK ESTABLISHED" "Rat desktop environment loaded successfully" "normal" "Rat" "computer"
               ;;
           "quickhacks")
-              send_cyber_notification "QUICKHACKS ACTIVATED" "Neural interface menu accessed" "normal" "Cyberpunk" "applications-system"
+              send_cyber_notification "QUICKHACKS ACTIVATED" "Neural interface menu accessed" "normal" "Rat" "applications-system"
               ;;
           "volume")
               send_cyber_notification "AUDIO LEVELS" "Volume: $2%" "low" "Volume" "audio-volume-high"
@@ -196,7 +196,7 @@
               send_cyber_notification "OPERATION COMPLETE" "$2" "normal" "System" "dialog-information"
               ;;
           *)
-              send_cyber_notification "CUSTOM MESSAGE" "$2" "normal" "Cyberpunk" "dialog-information"
+              send_cyber_notification "CUSTOM MESSAGE" "$2" "normal" "Rat" "dialog-information"
               ;;
       esac
     '';
@@ -204,16 +204,16 @@
   };
 
   # Service to send startup notification
-  systemd.user.services.cyberpunk-startup-notification = {
+  systemd.user.services.rat-startup-notification = {
     Unit = {
-      Description = "Cyberpunk startup notification";
+      Description = "Rat startup notification";
       After = [ "graphical-session-pre.target" ];
       PartOf = [ "graphical-session.target" ];
     };
     
     Service = {
       Type = "oneshot";
-      ExecStart = "${config.home.homeDirectory}/.config/mako/scripts/cyberpunk-notify.sh startup";
+      ExecStart = "${config.home.homeDirectory}/.config/mako/scripts/rat-notify.sh startup";
       RemainAfterExit = false;
     };
     

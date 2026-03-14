@@ -1,0 +1,94 @@
+/* Rat sewers theme */
+
+* {
+  font-family: "Hack Nerd Font", monospace;
+  font-size: 14px;
+}
+
+window {
+  background-color: rgba(26, 26, 36, 0.95);
+  border: 2px solid rgba(81, 81, 106, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+#input {
+  margin: 15px;
+  padding: 12px 15px;
+  background-color: rgba(37, 37, 53, 0.7);
+  border: 1px solid rgba(155, 89, 182, 0.5);
+  border-radius: 6px;
+  color: #EAEAEA;
+  box-shadow: 0 0 6px rgba(155, 89, 182, 0.2);
+  outline: none;
+}
+
+#input:focus {
+  border: 1px solid rgba(155, 89, 182, 0.9);
+  box-shadow: 0 0 12px rgba(155, 89, 182, 0.4);
+}
+
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  background-color: transparent;
+}
+
+#outer-box {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
+
+#scroll {
+  margin: 0px;
+  padding: 5px;
+}
+
+#text {
+  margin: 0px;
+  padding: 5px 10px;
+  color: #A0A0B0;
+  text-shadow: none;
+}
+
+#entry {
+  margin: 3px 5px;
+  padding: 10px 15px;
+  background: transparent;
+  border-left: 2px solid transparent;
+  border-right: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+#entry:hover {
+  background: rgba(123, 74, 163, 0.2);
+  border-left: 2px solid rgba(123, 74, 163, 0.7);
+}
+
+#entry:selected {
+  background: linear-gradient(90deg, rgba(81, 81, 106, 0.8), rgba(123, 74, 163, 0.5));
+  border-left: 2px solid rgba(155, 89, 182, 0.9);
+  border-right: 1px solid rgba(123, 74, 163, 0.4);
+  box-shadow: 0 0 8px rgba(155, 89, 182, 0.3);
+}
+
+#entry:selected #text {
+  color: #EAEAEA;
+  font-weight: bold;
+}
+
+scrollbar {
+  background-color: rgba(26, 26, 36, 0.6);
+  border-left: 1px solid rgba(81, 81, 106, 0.3);
+}
+
+scrollbar slider {
+  background-color: rgba(81, 81, 106, 0.8);
+  border-radius: 4px;
+}
+
+scrollbar slider:hover {
+  background-color: rgba(155, 89, 182, 0.7);
+}
